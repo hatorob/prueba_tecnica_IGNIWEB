@@ -1,3 +1,8 @@
+# Autor **Hector Alejandro Toro Bernal**
+**Este desafío me parece interesante ya que nunca he desarrollado usando Laravel, vamos adelante**
+
+* Voy a documentar todo lo posible como desarrolle el proyecto
+
 # Correr proyecto
 php artisan serve
 
@@ -44,6 +49,15 @@ ejecutar los siguientes comandos
 ```
 php artisan config:clear
 php artisan config:cache
+```
+## Como crear modelos
+```
+php artisan make:model CryptoCoin -m
+php artisan make:model CryptoDetail -m
+```
+## Como crear controladores
+```
+php artisan make:controller CryptoController
 ```
 
 obtener cypto

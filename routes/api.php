@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\CryptoCoin;
+use App\Http\Controllers\CryptoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +19,4 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 }); */
 
-Route::get('/crypto-coins', function () {
-    return response()->json(CryptoCoin::all());
-});
+Route::get('/crypto-coins', [CryptoController::class, 'getCryptoCoins']);
