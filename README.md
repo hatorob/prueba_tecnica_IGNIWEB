@@ -29,7 +29,15 @@ Puede estar sujeto a cambios. Acá dejaré los ALTER TABLE si es necesario
 ```
 Por el momento sin cambios
 ```
-
+Configuracion .env para BD
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=crypto_investment
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
 obtener cypto
 https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
