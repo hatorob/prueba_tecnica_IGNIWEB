@@ -21,7 +21,10 @@
         </style>
     </head>
     <body class="antialiased">
+        <h1>Renderizando data desde BD</h1>
+        <ul id="filter_crypto_coins">
 
-
+        </ul>
+        @vite(['resources/js/crypto.js'])
     </body>
 </html>
