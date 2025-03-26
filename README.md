@@ -17,7 +17,7 @@ Se crearon las siguientes tablas por el momento
 ```
 CREATE TABLE crypto_coins (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-    symbol VARCHAR(10) NOT NULL UNIQUE,
+    symbol VARCHAR(60) NOT NULL UNIQUE,
     name VARCHAR(60) NOT NULL UNIQUE,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
