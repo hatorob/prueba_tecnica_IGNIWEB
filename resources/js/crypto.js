@@ -32,6 +32,7 @@ import Chart from 'chart.js/auto';
     const listenCryptoSelection = (selectElement) => {
         selectElement.addEventListener('change', (event) => {
             const selectedId = event.target.value;
+            if(selectedId) document.querySelector(".container_details").style.display = "block";
             //! simulo la peticion
             let data = [
                 {
@@ -115,6 +116,10 @@ import Chart from 'chart.js/auto';
                     borderColor: borderColor,
                     borderWidth: 1
                 }]
+            },
+            options: {
+                resposive: true,
+                maintainAspectRatio: false,
             }
         })
     }

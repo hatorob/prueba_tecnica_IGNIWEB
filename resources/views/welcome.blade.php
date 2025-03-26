@@ -26,9 +26,28 @@
             h1, p {
                 color: #130f40;
                 margin: 0;
+                text-align: center;
+            }
+            .container_header {
+                width: 98% ;
+                margin: 0 auto;
+            }
+            .container_select {
+                width: 250px;
+                margin: 0 auto;
+                padding: 10px 0;
+            }
+            #filter_crypto_coins {
+                width: 250px;
+                padding: 10px;
+                border-radius: 8px;
+                background-color: #130f40;
+                color: #dff9fb;
             }
             .container_details {
                 width: 100%;
+                display: none;
+                margin-top: 20px;
             }
             .container_consolidated_detail {
                 width: 400px;
@@ -41,24 +60,31 @@
             }
 
             .container_graph {
-                width: 100%;
+                width: 98%;
+                margin: 0 auto;
+                max-width: 1200px;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
+                grid-gap: 20px;
             }
 
-            canvas {
-                width: 100% !important;
-                height: auto !important;
+            .graph {
+                width: 100%;
+                padding: 20px;
             }
 
         </style>
     </head>
     <body class="antialiased">
-        <h1>CryptoInvestment</h1>
-        <p>Monitorea de forma rápida y eficaz</p>
-        <select id="filter_crypto_coins">
-            <option value="">Seleccione una criptomoneda</option>
-        </select>
+        <div class="container_header">
+            <h1>CryptoInvestment</h1>
+            <p>Monitorea de forma rápida y eficaz</p>
+            <div class="container_select">
+                <select id="filter_crypto_coins">
+                    <option value="">Seleccione una criptomoneda</option>
+                </select>
+            </div>
+        </div>
         <div class="container_details">
             <div class="container_consolidated_detail">
                 <div class="detail_price"></div>
@@ -66,9 +92,15 @@
                 <div class="detail_volume"></div>
             </div>
             <div class="container_graph">
-                <canvas id="priceChart"></canvas>
-                <canvas id="percentageChangeChart"></canvas>
-                <canvas id="volumeChart"></canvas>
+                <div class="graph">
+                    <canvas id="priceChart"></canvas>
+                </div>
+                <div class="graph">
+                    <canvas id="percentageChangeChart"></canvas>
+                </div>
+                <div class="graph">
+                    <canvas id="volumeChart"></canvas>
+                </div>
             </div>
         </div>
         @vite(['resources/js/crypto.js'])
