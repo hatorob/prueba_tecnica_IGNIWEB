@@ -6,6 +6,8 @@
 # Correr proyecto
 php artisan serve
 
+# Documentacion BACKEND
+
 ## XAMP
 Se uso xamp para la creación de la BD crypto_test, por favor crear la BD
 ```

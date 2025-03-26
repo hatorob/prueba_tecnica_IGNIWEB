@@ -9,7 +9,8 @@ class CryptoCoin extends Model
 {
     use HasFactory;
     protected $table = "crypto_coins";
-    protected $fildTable = ['symbol', 'name', 'create_date'];
+    protected $fillable = ['symbol', 'name', 'create_date'];
+    public $timestamps = false;
 
     public function details() {
         return $this->hasMany(CryptoDetail::class, 'crypto_id');

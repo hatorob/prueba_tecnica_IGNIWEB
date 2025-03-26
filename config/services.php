@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'coinmarket' => [
+        'key' => env('APP_KEY_COINMARKET'),
+        'url_dbg' => env('URL_COINMARKET_DBG'),
+        'url' => env('URL_COINMARKET'),
+    ],
+
 ];
