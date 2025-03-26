@@ -212,4 +212,12 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    'key_coinmarket' => env('APP_KEY_COINMARKET'),
+
+    'url_coinmarket' => env('URL_COINMARKET'),
+
+    'url_coinmarket_dbg' => env('URL_COINMARKET_DBG'),
+
+
+
 ];
