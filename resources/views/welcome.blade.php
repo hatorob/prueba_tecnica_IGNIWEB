@@ -21,10 +21,22 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>Renderizando data desde BD</h1>
-        <ul id="filter_crypto_coins">
+        <h1>CryptoInvestment</h1>
+        <p>Monitorea de forma rápida y eficaz</p>
+        <select id="filter_crypto_coins">
+            <option value="">Seleccione una criptomoneda</option>
+        </select>
+        <div class="container_details">
+            <div class="detail_price">
 
-        </ul>
+            </div>
+            <div class="detail_percentage_change">
+
+            </div>
+            <div class="detail_volume">
+
+            </div>
+        </div>
         @vite(['resources/js/crypto.js'])
     </body>
 </html>
