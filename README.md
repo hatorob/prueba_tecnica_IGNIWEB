@@ -11,7 +11,7 @@ php artisan serve
 ## XAMP
 Se uso xamp para la creación de la BD crypto_test, por favor crear la BD
 ```
-CREATE DATABASE crypto_investment CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE crypto_test CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
 Se crearon las siguientes tablas por el momento
 ```
