@@ -15,8 +15,13 @@
         </style>
 
         <style>
+            html {
+                width: 100%;
+                margin: 0 auto;
+            }
             body {
                 font-family: 'Nunito', sans-serif;
+                width: 100%;
                 margin: 0;
                 padding: 10px;
                 overflow-x: hidden;
@@ -29,7 +34,7 @@
                 text-align: center;
             }
             .container_header {
-                width: 98% ;
+                width: 100% ;
                 margin: 0 auto;
             }
             .container_select {
@@ -71,9 +76,17 @@
             .graph {
                 width: 100%;
                 padding: 20px;
-                /* border: 1px solid #130f40; */
                 border-radius: 5px;
                 box-shadow: 0 7px 25px rgba(19, 15, 64,1.0);
+                overflow: hidden;
+            }
+
+            @media (max-width: 768px) {
+                .container_graph {
+                    grid-template-columns: 1fr;
+                    width: 100%;
+                    margin: 30px 0;
+                }
             }
 
         </style>
