@@ -17,6 +17,23 @@ php artisan serve
 npm run dev
 ```
 4. abrir la url dada por php artisan serve
+5. Configurar variables de entorno según sus datos - agregar la llave, en el copy .env ya estan estas variables, solo poner la llave correspondiente
+```
+APP_KEY_COINMARKET=key-api
+URL_COINMARKET_DBG=https://sandbox-api.coinmarketcap.com
+URL_COINMARKET=https://pro-api.coinmarketcap.com
+```
+
+Configuracion .env para BD, en mi caso xamp lo tengo sin clave, si tiene una clave ponerla en el DB_PASSWORD
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=crypto_test
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
 
 * Importante crear las tablas y ejecutar los alter table ya que sin esto no se guardará la información de las crypto monedas.
@@ -53,16 +70,7 @@ CREATE TABLE crypto_details (
 Puede estar sujeto a cambios. Acá dejaré los ALTER TABLE si es necesario
 ```
 ALTER TABLE crypto_details
-ADD COLUMN last_update TIMESTAMP;
-```
-Configuracion .env para BD
-```
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=crypto_test
-DB_USERNAME=root
-DB_PASSWORD=
+ADD COLUMN last_update TIMESTAMP NULL;
 ```
 
 ## Para que tome los cambios de BD
