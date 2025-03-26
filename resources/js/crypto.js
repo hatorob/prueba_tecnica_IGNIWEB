@@ -31,6 +31,7 @@ import Chart from 'chart.js/auto';
 
     const listenCryptoSelection = (selectElement) => {
         selectElement.addEventListener('change', (event) => {
+            console.log({selectElement});
             const selectedId = event.target.value;
             if(selectedId) document.querySelector(".container_details").style.display = "block";
             //! simulo la peticion
@@ -84,10 +85,12 @@ import Chart from 'chart.js/auto';
         const priceElement = document.querySelector(".detail_price");
         const percentageChangeElement = document.querySelector(".detail_percentage_change");
         const volumeElement = document.querySelector(".detail_volume");
+        const updateTimeElement = document.querySelector(".detail_last_update");
 
-        priceElement.textContent = `Price: ${data[data.length - 1].price}`;
-        percentageChangeElement.textContent = `Percentage Change: ${data[data.length - 1].percentage_change}`;
+        priceElement.textContent = `Precio: $${data[data.length - 1].price}`;
+        percentageChangeElement.textContent = `Percentage Change: ${data[data.length - 1].percentage_change}%`;
         volumeElement.textContent = `Volumen: ${data[data.length - 1].volume}`;
+        updateTimeElement.textContent = `Ultima actualización: ${data[data.length - 1].last_update}`;
 
         clearPreviousCharts();
 
@@ -103,7 +106,6 @@ import Chart from 'chart.js/auto';
     }
 
     const createChart = (canvasId, type, label, labels, data, borderColor) => {
-        console.log({canvasId}, {type}, {label}, {labels}, {data}, {borderColor});
         const ctx = document.getElementById(canvasId).getContext('2d');
         new Chart(ctx, {
             type,
@@ -134,5 +136,7 @@ import Chart from 'chart.js/auto';
 
     //! inicializador de options
     fetchCryptos();
+    //setInterval(fetchData, 60000);
+    setInterval(fetchCryptos, 30000);
 
 })();

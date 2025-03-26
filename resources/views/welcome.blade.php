@@ -106,6 +106,7 @@
                 <div class="detail_price"></div>
                 <div class="detail_percentage_change"></div>
                 <div class="detail_volume"></div>
+                <div class="detail_last_update"></div>
             </div>
             <div class="container_graph">
                 <div class="graph">
