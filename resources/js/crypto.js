@@ -114,9 +114,9 @@ import Chart from 'chart.js/auto';
     //! inicializador de options
     fetchCryptos();
     // Cada 5 minutos ---> ya que tiene un limite de peticiones de 10 mil
-    //setInterval(fetchData, 60000);
+    //setInterval(fetchCryptos, 60000);
     // Cada un minuto
-    setInterval(fetchData, 60000);
+    setInterval(fetchCryptos, 60000);
     // cada 30 seg
     //setInterval(fetchCryptos, 30000);
 

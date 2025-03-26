@@ -1,7 +1,25 @@
 # Autor **Hector Alejandro Toro Bernal**
 **Este desafío me parece interesante ya que nunca he desarrollado usando Laravel, vamos adelante**
 
+
+
+# Documentación de como cree el proyecto
 * Voy a documentar todo lo posible como desarrolle el proyecto
+## Como hacer funcionar el proyecto
+1. crear base de datos, las tablas y ejecutar los alter table - estan en el apartado de más abajo
+2. hacer instalación de los paquetes
+```
+npm i
+```
+3. abrir dos terminales, una para habilitar php artisian y la otra para activar el servidor de vite
+```
+php artisan serve
+npm run dev
+```
+4. abrir la url dada por php artisan serve
+
+
+* Importante crear las tablas y ejecutar los alter table ya que sin esto no se guardará la información de las crypto monedas.
 
 # Correr proyecto
 php artisan serve
