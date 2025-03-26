@@ -50,4 +50,15 @@ class CryptoController extends Controller
         return response()->json($cryptos);
     }
 
+
+    public function getCryptoDetails(Request $request) {
+        $idCryptoCoin = $request->input('id');
+
+        $cryptoDetail = CryptoDetail::where('crypto_id', $idCryptoCoin)
+        ->orderBy('last_update', 'asc')
+        ->get();
+
+        return response()->json($cryptoDetail);
+    }
+
 }

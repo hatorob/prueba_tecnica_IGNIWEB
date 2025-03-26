@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 Route::get('/crypto-coins', [CryptoController::class, 'getCryptoCoins']);
+Route::get('/crypto-coin-details', [CryptoController::class, 'getCryptoDetails']);
