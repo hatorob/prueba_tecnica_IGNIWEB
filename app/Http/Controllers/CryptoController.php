@@ -18,7 +18,7 @@ class CryptoController extends Controller
         $url_dbg = config('app.url_coinmarket_dbg');
 
 
-        /* $response = Http::withHeaders([
+        $response = Http::withHeaders([
             'Accept' => 'application/json',
             'X-CMC_PRO_API_KEY' => $key,
         ])->get($url . "/v1/cryptocurrency/listings/latest");
@@ -44,7 +44,7 @@ class CryptoController extends Controller
                 ]);
 
             }
-        } */
+        }
 
         $cryptos = CryptoCoin::all();
         return response()->json($cryptos);
