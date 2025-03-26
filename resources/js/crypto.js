@@ -1,3 +1,5 @@
+import Chart from 'chart.js/auto';
+
 ( () => {
 
     const fetchCryptos = async() => {
@@ -85,7 +87,47 @@
         priceElement.textContent = `Price: ${data[data.length - 1].price}`;
         percentageChangeElement.textContent = `Percentage Change: ${data[data.length - 1].percentage_change}`;
         volumeElement.textContent = `Volumen: ${data[data.length - 1].volume}`;
+
+        clearPreviousCharts();
+
+        //! Creo datos grafica
+        const priceData = data.map( el => el.price );
+        const percentageData = data.map( el => el.percentage_change );
+        const volumeData = data.map( el => el.volume );
+        const timeLabels = data.map( el => el.last_update );
+
+        createChart('priceChart', 'line', 'Precio', timeLabels, priceData, 'rgb(75, 192, 192)');
+        createChart('percentageChangeChart', 'bar', 'Cambio porcentual', timeLabels, percentageData, 'rgba(255, 99, 132, 1)');
+        createChart('volumeChart', 'pie', 'Volumen del mercado', timeLabels, volumeData, 'rgba(54, 162, 235, 0.2)');
     }
+
+    const createChart = (canvasId, type, label, labels, data, borderColor) => {
+        console.log({canvasId}, {type}, {label}, {labels}, {data}, {borderColor});
+        const ctx = document.getElementById(canvasId).getContext('2d');
+        new Chart(ctx, {
+            type,
+            data: {
+                labels,
+                datasets: [{
+                    label,
+                    data,
+                    backgroundColor: borderColor,
+                    borderColor: borderColor,
+                    borderWidth: 1
+                }]
+            }
+        })
+    }
+
+    const clearPreviousCharts = () => {
+        const canvasElement = document.querySelectorAll("canvas");
+        canvasElement.forEach( el => {
+            const chart = Chart.getChart(el.id);
+            if(chart) chart.destroy();
+        })
+    }
+
+    //! inicializador de options
     fetchCryptos();
 
 })();

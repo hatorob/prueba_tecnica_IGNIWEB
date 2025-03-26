@@ -17,7 +17,40 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+                margin: 0;
+                padding: 10px;
+                overflow-x: hidden;
+                box-sizing: border-box;
+                background-color: #dff9fb;
             }
+            h1, p {
+                color: #130f40;
+                margin: 0;
+            }
+            .container_details {
+                width: 100%;
+            }
+            .container_consolidated_detail {
+                width: 400px;
+                margin: 0 auto;
+                padding: 10px;
+                border-radius: 20px;
+                background: #130f40;
+                color:#dff9fb;
+                text-align: center;
+            }
+
+            .container_graph {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            canvas {
+                width: 100% !important;
+                height: auto !important;
+            }
+
         </style>
     </head>
     <body class="antialiased">
@@ -27,14 +60,15 @@
             <option value="">Seleccione una criptomoneda</option>
         </select>
         <div class="container_details">
-            <div class="detail_price">
-
+            <div class="container_consolidated_detail">
+                <div class="detail_price"></div>
+                <div class="detail_percentage_change"></div>
+                <div class="detail_volume"></div>
             </div>
-            <div class="detail_percentage_change">
-
-            </div>
-            <div class="detail_volume">
-
+            <div class="container_graph">
+                <canvas id="priceChart"></canvas>
+                <canvas id="percentageChangeChart"></canvas>
+                <canvas id="volumeChart"></canvas>
             </div>
         </div>
         @vite(['resources/js/crypto.js'])
