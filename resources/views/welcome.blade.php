@@ -61,7 +61,7 @@
 
             .container_graph {
                 width: 98%;
-                margin: 0 auto;
+                margin: 30px auto;
                 max-width: 1200px;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -71,6 +71,9 @@
             .graph {
                 width: 100%;
                 padding: 20px;
+                /* border: 1px solid #130f40; */
+                border-radius: 5px;
+                box-shadow: 0 7px 25px rgba(19, 15, 64,1.0);
             }
 
         </style>
