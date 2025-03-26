@@ -34,7 +34,8 @@ CREATE TABLE crypto_details (
 ```
 Puede estar sujeto a cambios. Acá dejaré los ALTER TABLE si es necesario
 ```
-Por el momento sin cambios
+ALTER TABLE crypto_details
+ADD COLUMN last_update TIMESTAMP;
 ```
 Configuracion .env para BD
 ```
@@ -61,6 +62,13 @@ php artisan make:model CryptoDetail -m
 ```
 php artisan make:controller CryptoController
 ```
+
+# FRONT
+instalación libreria chart.js
+```
+npm install chart.js
+```
+
 
 obtener cypto
 https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
