@@ -2,6 +2,8 @@ import Chart from 'chart.js/auto';
 
 ( () => {
 
+    let intervalId = null;
+
     const fetchCryptos = async() => {
         try {
             const response = await fetch('/api/crypto-coins');
@@ -30,58 +32,33 @@ import Chart from 'chart.js/auto';
     }
 
     const listenCryptoSelection = (selectElement) => {
-        selectElement.addEventListener('change', (event) => {
-            console.log({selectElement});
+        selectElement.addEventListener('change', async (event) => {
+
             const selectedId = event.target.value;
             if(selectedId) document.querySelector(".container_details").style.display = "block";
-            //! simulo la peticion
-            let data = [
-                {
-                  price: 212.33,
-                  percentage_change: 1.022,
-                  volume: 17322154,
-                  last_update: "2021-11-25 22:39:00"
-                },
-                {
-                  price: 200.33,
-                  percentage_change: 0.22,
-                  volume: 173223334,
-                  last_update: "2021-11-25 24:39:00"
-                },
-                {
-                  price: 242.33,
-                  percentage_change: 1.322,
-                  volume: 1732215334,
-                  last_update: "2021-11-25 22:45:00"
-                },
-            ]
-            let dataDos = [
-                {
-                  price: 12.33,
-                  percentage_change: 1.22,
-                  volume: 322154,
-                  last_update: "2021-11-25 22:39:00"
-                },
-                {
-                  price: 20.33,
-                  percentage_change: 0.22,
-                  volume: 173223334,
-                  last_update: "2021-11-25 24:39:00"
-                },
-                {
-                  price: 22.33,
-                  percentage_change: 1.322,
-                  volume: 17215334,
-                  last_update: "2021-11-25 22:45:00"
-                },
-            ]
 
-            //! llamo a la función que hará el render
-            updateDetails((selectedId == 256) ? data : dataDos);
+            if(intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+
+            const fetchCryptoDetails = async () => {
+                try {
+                    const response = await fetch(`/api/crypto-coin-details?id=${selectedId}`);
+                    const data = await response.json();
+                    updateDetails(data);
+                } catch (error) {
+                    alert(error.message);
+                }
+            }
+
+            fetchCryptoDetails();
+            intervalId = setInterval(fetchCryptoDetails, 30000);
         })
     }
 
     const updateDetails = (data = []) => {
+        if(data.length == 0) document.querySelector(".detail_price").textContent = "No se encontro datos de la bitcoin";
         const priceElement = document.querySelector(".detail_price");
         const percentageChangeElement = document.querySelector(".detail_percentage_change");
         const volumeElement = document.querySelector(".detail_volume");
@@ -136,7 +113,11 @@ import Chart from 'chart.js/auto';
 
     //! inicializador de options
     fetchCryptos();
+    // Cada 5 minutos ---> ya que tiene un limite de peticiones de 10 mil
     //setInterval(fetchData, 60000);
-    setInterval(fetchCryptos, 30000);
+    // Cada un minuto
+    setInterval(fetchData, 60000);
+    // cada 30 seg
+    //setInterval(fetchCryptos, 30000);
 
 })();
