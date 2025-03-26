@@ -116,8 +116,8 @@ import Chart from 'chart.js/auto';
     // Cada 5 minutos ---> ya que tiene un limite de peticiones de 10 mil
     //setInterval(fetchCryptos, 60000);
     // Cada un minuto
-    setInterval(fetchCryptos, 60000);
+    //setInterval(fetchCryptos, 60000);
     // cada 30 seg
-    //setInterval(fetchCryptos, 30000);
+    setInterval(fetchCryptos, 30000);
 
 })();
